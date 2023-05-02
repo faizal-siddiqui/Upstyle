@@ -99,9 +99,8 @@ its a page where you can go to the menpage or women page and also you can do log
 ![Screenshot (1288)](https://user-images.githubusercontent.com/112858862/235775536-faed223b-e4c6-422f-8623-84b72eca006d.png)
 
 # Admin Products Manage Page
-![Screenshot (1289)](https://user-images.githubusercontent.com/112858862/23577555![Screenshot (1290)](https://user-images.githubusercontent.com/112858862/235775604-a4b129b9-ac1e-499c-9a7f-a07faf19fca9.png)
-8-812c37cf-dbea-420f-925d-cc8e900f27c1.png)
-![Uploading Screenshot (1290).png…]()
+![Screenshot (1289)](https://user-images.githubusercontent.com/112858862/235776308-6d04b5d2-c3ca-4f0c-a104-523f559d3fbe.png)
+![Screenshot (1290)](https://user-images.githubusercontent.com/112858862/235776317-e0b893c2-3582-4f96-ab0c-2d7320297191.png)
 
 # Admin User Manage Page
 ![Screenshot (1291)](https://user-images.githubusercontent.com/112858862/235775618-35c9f4ea-c05e-4e8e-a9a5-d970babebbf3.png)
