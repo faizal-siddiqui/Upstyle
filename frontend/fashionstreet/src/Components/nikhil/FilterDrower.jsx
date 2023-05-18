@@ -54,8 +54,15 @@ export default function Filter() {
 
   return (
     <>
-      <Stack w="100%" p="10px" textAlign="left">
-        <Stack p="15px" position={"relative"}>
+      <Stack
+        w="100%"
+        p="10px"
+        textAlign="left"
+      >
+        <Stack
+          p="15px"
+          position={"relative"}
+        >
           <Heading size={"md"}>FILTERS</Heading>
           <button
             style={{ position: "absolute", right: "15px" }}
@@ -74,11 +81,19 @@ export default function Filter() {
             {params.gender && <p>GENDER: {params.gender}</p>}
           </Box>
         </Stack>
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion
+          defaultIndex={[0]}
+          allowMultiple
+        >
           {filters.map((main) => (
             <AccordionItem key={main.title}>
               <AccordionButton>
-                <Box as="span" flex="1" textAlign="left" fontWeight={"bold"}>
+                <Box
+                  as="span"
+                  flex="1"
+                  textAlign="left"
+                  fontWeight={"bold"}
+                >
                   {main.title.toUpperCase()}
                 </Box>
                 <AccordionIcon />
@@ -107,7 +122,11 @@ export function FilterDrower() {
 
   return (
     <div>
-      <button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+      <button
+        ref={btnRef}
+        colorScheme="teal"
+        onClick={onOpen}
+      >
         <Text
           fontWeight={"bold"}
           border={"1px solid #D6D6D6"}
@@ -132,7 +151,11 @@ export function FilterDrower() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button
+              variant="outline"
+              mr={3}
+              onClick={onClose}
+            >
               CLOSE
             </Button>
           </DrawerFooter>
@@ -150,7 +173,11 @@ export function Sort() {
   const { params } = useSelector((store) => store.productsManager);
 
   return (
-    <Box border={"1px solid #D6D6D6"} w="80px" bgColor={"white"}>
+    <Box
+      border={"1px solid #D6D6D6"}
+      w="80px"
+      bgColor={"white"}
+    >
       <Select
         textAlign={"right"}
         variant="unstyled"
@@ -219,7 +246,11 @@ export function SearchDrower() {
 
   return (
     <div>
-      <button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+      <button
+        ref={btnRef}
+        colorScheme="teal"
+        onClick={onOpen}
+      >
         <Search2Icon boxSize="20px" />
       </button>
       <Drawer
@@ -233,12 +264,15 @@ export function SearchDrower() {
           <DrawerBody>
             <DrawerHeader textAlign={"center"}>SEARCH</DrawerHeader>
             <HStack>
-              <Input border={"1px solid"} onChange={handleSearch} />
+              <Input
+                border={"1px solid"}
+                onChange={handleSearch}
+              />
               <Button
                 {...ButtonStyle}
                 onClick={() => dispatch(get_products({ q: undefined }))}
               >
-                X
+                <Search2Icon boxSize="20px" />
               </Button>
             </HStack>
             {params.q &&

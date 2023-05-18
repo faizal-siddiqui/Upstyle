@@ -29,7 +29,10 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <Box h="50px">
-        <Flex w="100%" justifyContent="end">
+        <Flex
+          w="100%"
+          justifyContent="end"
+        >
           <Box mr="15px">
             <Button
               onClick={() => {
@@ -45,7 +48,10 @@ const ProductCard = ({ product }) => {
             </Button>
           </Box>
           <Box>
-            <Button onClick={deleteData} colorScheme="red">
+            <Button
+              onClick={deleteData}
+              colorScheme="red"
+            >
               Delete
             </Button>
           </Box>
@@ -198,14 +204,14 @@ const ProductCard = ({ product }) => {
             type="text"
           />
         </Box>
-        <Box
+        {/* <Box
           padding="10px"
           border="1px"
           borderColor="gray.200"
           w={{ lg: "100%", md: "100%", sm: "100%", base: "100%" }}
         >
           <ProductsRating product={product} />
-        </Box>
+        </Box> */}
       </Flex>
     </div>
   );

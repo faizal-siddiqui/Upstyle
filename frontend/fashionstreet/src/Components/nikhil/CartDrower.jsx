@@ -26,7 +26,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonStyle } from "./nikhil.css";
 import { UnlockIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsCartX } from "react-icons/bs";
 import useToastCompo from "../../CustomHook/useToast";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -34,6 +34,9 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 export default function CartDrower() {
   // store related logic
   let { CART } = useSelector((store) => store.cartManager);
+
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { Toast } = useToastCompo();
 
@@ -47,6 +50,12 @@ export default function CartDrower() {
 
   const increaseProdQuantity = (_id, quantity) => {
     dispatch(update_cart(_id, quantity + 1, Toast));
+  };
+
+  // checkout Navigate
+  const handleCheckoutButton = () => {
+    onClose();
+    navigate("/checkout");
   };
 
   useEffect(() => {
@@ -74,10 +83,18 @@ export default function CartDrower() {
           <Divider />
           <DrawerBody>
             {CART.length === 0 ? (
-              <Flex h="50dvh" alignItems="center" justifyContent="center">
+              <Flex
+                h="50dvh"
+                alignItems="center"
+                justifyContent="center"
+              >
                 <Box as="span">
                   <BsCartX fontSize="200px" />
-                  <Text textAlign="center" fontSize="25px" mt="20px">
+                  <Text
+                    textAlign="center"
+                    fontSize="25px"
+                    mt="20px"
+                  >
                     Your Cart is Empty
                   </Text>
                 </Box>
@@ -85,7 +102,10 @@ export default function CartDrower() {
             ) : (
               <VStack>
                 {CART?.map((el) => (
-                  <Box key={el.productsId._id} position={"relative"}>
+                  <Box
+                    key={el.productsId._id}
+                    position={"relative"}
+                  >
                     <button
                       style={{
                         position: "absolute",
@@ -101,7 +121,10 @@ export default function CartDrower() {
                     >
                       x
                     </button>
-                    <Stack justify={"space-between"} p="10px">
+                    <Stack
+                      justify={"space-between"}
+                      p="10px"
+                    >
                       <Link to={`/products/${el.productsId._id}`}>
                         <Image src={el.productsId.img} />
                       </Link>
@@ -119,7 +142,10 @@ export default function CartDrower() {
                             {el.productsId.price}
                           </span>
                         </Text>
-                        <HStack w="100%" justify={"space-between"}>
+                        <HStack
+                          w="100%"
+                          justify={"space-between"}
+                        >
                           <Button
                             isDisabled={+el.quantity === 1}
                             onClick={() =>
@@ -130,7 +156,11 @@ export default function CartDrower() {
                           >
                             -
                           </Button>
-                          <Button {...ButtonStyle} size="sm" w="70%">
+                          <Button
+                            {...ButtonStyle}
+                            size="sm"
+                            w="70%"
+                          >
                             {el.quantity}
                           </Button>
                           <Button
@@ -145,7 +175,10 @@ export default function CartDrower() {
                         </HStack>
                       </Stack>
                     </Stack>
-                    <Divider mt="5px" border={"1px solid"} />
+                    <Divider
+                      mt="5px"
+                      border={"1px solid"}
+                    />
                   </Box>
                 ))}
               </VStack>
@@ -153,11 +186,9 @@ export default function CartDrower() {
           </DrawerBody>
           <DrawerFooter justifyContent={"space-between"}>
             <Button
-              as={Link}
-              to="/checkout"
               {...ButtonStyle}
               w="100%"
-              onClick={onClose}
+              onClick={handleCheckoutButton}
               isDisabled={CART?.length === 0}
             >
               CHECKOUT
